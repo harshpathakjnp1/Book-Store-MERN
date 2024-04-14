@@ -7,7 +7,7 @@ import { ShowBook } from './Pages/ShowBook'
 const App = () => {
   return (
     <Routes>
-      <Route path='' element={ } />
+      <Route path='/' element={ <Home/>} />
       <Route path='' element={ } />
       <Route path='' element={ } />
       <Route path='' element={ } />
