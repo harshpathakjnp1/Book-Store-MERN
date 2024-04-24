@@ -4,17 +4,15 @@ import { PORT, MONGODB_URL } from './config.js';
 import booksRouter from './Routes/Books.Route.js'
 import cors from 'cors';
 
-app.use(cors(
-    {
-        origin : 'http://localhost:3000',
-        methods: ['GET','POST','PUT','DELETE'],
-        allowedHeaders:['Content-Type'],
-    }
-))
+
 
 const app = express();
 //middleware for parsing request body
 app.use(express.json())
+
+
+
+app.use(cors())
 
 app.get('/', (req, res) => {
     console.log(req)
