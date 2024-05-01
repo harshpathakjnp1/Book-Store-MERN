@@ -12,10 +12,10 @@ const DeleteBook = () => {
   const id = useParams()
   const handleDeleteBook = () => {
     setLoading(true)
-    axios.delete(`http://localhost:5555/books/${id}`).then(()=>{
+    axios.delete(`http://localhost:5555/books/${id}`).then(() => {
       setLoading(false)
       navigate('/')
-    }).catch((error)=>{
+    }).catch((error) => {
       setLoading(false)
       alert('An Error Occured,please check console')
       console.log(error)
@@ -23,8 +23,10 @@ const DeleteBook = () => {
   }
   return (
     <div className='p-4'>
-      <BackButton/>
-      
+      <BackButton />
+      <h1 className='text-3xl my-4'>Delete Book</h1>
+
+
 
     </div>
   )
