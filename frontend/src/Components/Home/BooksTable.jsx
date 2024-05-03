@@ -4,7 +4,7 @@ import { BsInfoCircle } from 'react-icons/bs'
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 
-export const BooksTable = (books) => {
+export const BooksTable = ({books}) => {
     return (
         <table className="w-full border-separate border-spacing-2">
             <thead>
