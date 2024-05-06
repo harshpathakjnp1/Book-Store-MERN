@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom'
 import { MdOutlineAddBox } from 'react-icons/md'
 import { Spinner } from "../Components/Spinner.jsx"
 import { BooksCard } from "../Components/Home/BooksCard.jsx"
-import { BooksTable } from "../Components/Home/BooksTable.jsx"
+import BooksTable from "../Components/Home/BooksTable.jsx"
 
-export const Home = () => {
+const Home = () => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(false)
-  const [showtype, setShowType] = useState('')
+  const [showtype, setShowType] = useState('table')
 
   useEffect(() => {
     setLoading(true)
     axios.get('http://localhost:5555/books').then((response) => {
       setBooks(response.data.data)
+      console.log(response.data.data)
       setLoading(false)
     }).catch((error) => {
       console.log(error)
@@ -25,9 +26,9 @@ export const Home = () => {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center gap-x-4">
-        <button className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg " onClick={() => { setShowType('table') }}>Table</button>
+        <button className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg " onClick={() => setShowType('table')}>Table</button>
 
-        <button className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg " onClick={() => { setShowType('card') }}>Card</button>
+        <button className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg " onClick={() => setShowType('card')}>Card</button>
 
       </div>
       <div className="flex justify-between items-center">
@@ -38,8 +39,10 @@ export const Home = () => {
 
       </div>
       {loading ? (<Spinner />) : showtype === 'table' ? (
-        <BooksTable books={books} />
+        <BooksTable bookss={books} />
       ) : (<BooksCard books={books} />)}
     </div>
   )
 }
+
+export default Home

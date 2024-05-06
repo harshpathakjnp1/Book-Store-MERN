@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import CreateBook from './Pages/CreateBook.jsx'
 import DeleteBook from './Pages/DeleteBook.jsx'
 import EditBook from './Pages/EditBook.jsx'
-import { Home } from './Pages/Home.jsx'
+import  Home  from './Pages/Home.jsx'
 import { ShowBook } from './Pages/ShowBook.jsx'
 const App = () => {
   return (

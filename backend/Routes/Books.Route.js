@@ -47,11 +47,7 @@ router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params
         const book = await Book.findById(id)
-        return res.status(200).json({
-            count: book.length,
-            data: book
-            ,
-        })
+        return res.status(200).json(book)
 
     } catch (error) {
         console.log(error.message)
