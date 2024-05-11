@@ -9,7 +9,7 @@ import BooksTable from "../Components/Home/BooksTable.jsx"
 const Home = () => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(false)
-  const [showtype, setShowType] = useState('table')
+  const [showtype, setShowType] = useState('card')
 
   useEffect(() => {
     setLoading(true)
@@ -39,7 +39,7 @@ const Home = () => {
 
       </div>
       {loading ? (<Spinner />) : showtype === 'table' ? (
-        <BooksTable bookss={books} />
+        <BooksTable books={books} />
       ) : (<BooksCard books={books} />)}
     </div>
   )
