@@ -7,6 +7,7 @@ import cors from 'cors';
 
 
 const app = express();
+
 //middleware for parsing request body
 app.use(express.json())
 
@@ -27,5 +28,5 @@ mongoose.connect(MONGODB_URL).then(() => {
         console.log(`App is listening to PORT : ${PORT}`);
     })
 }).catch((err) => {
-    console.log(err)
+    console.log("error mongo", err)
 });
